@@ -1,12 +1,18 @@
 pipeline {
-  agent {
-    docker { image 'node:16-alpine' }
-  }
-  stages {
-    stage('Test') {
-      steps {
-        sh 'node --version'
-      }
+    agent any
+
+    stages {
+        stage('Greet') {
+            steps {
+                echo 'Hello, Jenkins!'
+            }
+        }
+
+        stage('System Info') {
+            steps {
+                sh 'uname -a'        // Prints Linux system info
+                sh 'whoami'          // Shows current user
+            }
+        }
     }
-  }
 }
