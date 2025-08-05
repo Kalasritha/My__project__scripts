@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage('Simple Echo') {
+            steps {
+                echo '🎉 Jenkins is working without Node.js!'
+            }
+        }
+    }
+}
+
