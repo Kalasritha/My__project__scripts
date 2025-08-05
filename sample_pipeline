@@ -1,11 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:18-alpine' } // Lightweight Node.js image
+    }
+
     stages {
-        stage('Simple Echo') {
+        stage('Greet') {
             steps {
-                echo '🎉 Jenkins is working without Node.js!'
+                echo 'Hello from Docker-based Jenkins agent!'
             }
         }
     }
 }
-
