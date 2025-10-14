@@ -59,7 +59,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
         with:
+          repository: Kalasritha/My_project_scripts/demo
           token: ${{ secrets.TOKEN }}
 
       - name: Update tag in Helm chart

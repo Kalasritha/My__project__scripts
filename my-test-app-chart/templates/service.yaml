@@ -12,4 +12,4 @@ spec:
     protocol: TCP
   selector:
     app: my-test-app
-  type: NodePort
+  type: ClusterIP
