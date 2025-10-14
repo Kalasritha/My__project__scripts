@@ -31,15 +31,15 @@ jobs:
             mvn -version
         
       - name: Build with Maven
-        run: cd My__project__scripts && mvn  compile
+        run: cd demo && mvn  compile
        
 
       - name: Run unit test
-        run:  cd My__project__scripts && mvn test
+        run:  cd demo && mvn test
     
 
       - name: Build JAR
-        run:   cd My__project__scripts && mvn  package
+        run:   cd demo && mvn  package
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
