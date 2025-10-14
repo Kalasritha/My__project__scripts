@@ -21,7 +21,7 @@ jobs:
           distribution: 'temurin'
           java-version: '21'  
 
-          
+
       - name: Install Maven
         run: |
             sudo apt-get update
@@ -30,6 +30,7 @@ jobs:
         
       - name: Build with Maven
         run: mvn clean install
+       cache: maven
 
       - name: Run unit test
         run: mvn test
