@@ -59,11 +59,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
         with:
-          repository: Kalasritha/My_project_scripts/demo
           token: ${{ secrets.TOKEN }}
-
+      - name: Show repo structure
+        run: |
+            pwd
+            ls -R
       - name: Update tag in Helm chart
         run: |
           sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' helm/my-test-app/values.yaml
@@ -75,4 +76,5 @@ jobs:
           git add helm/my-test-app/values.yaml
           git commit -m "Update tag in Helm chart"
           git push
-      
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
