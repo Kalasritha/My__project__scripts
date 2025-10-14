@@ -61,10 +61,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.TOKEN }}
-      - name: Show repo structure
-        run: |
-            pwd
-            ls -R
+      
       - name: Update tag in Helm chart
         run: |
          sed -i 's/tag: .*/tag: \"${{ github.run_id }}\"/" My__project__scripts/demo/my-test-app/values.yaml
