@@ -1,0 +1,22 @@
+# This is a sample deployment manifest file for a simple web application created by spring initialser.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-test-app
+  labels:
+    app: my-test-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-test-app
+  template:
+    metadata:
+      labels:
+        app: my-test-app
+    spec:
+      containers:
+      - name: my-test-app
+        image: kalasritha004/my-test-app:{{values.image.tag}}
+        ports:
+        - containerPort: 8082
