@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: my-test-app
-        image: kalasritha004/my-test-app:{{values.image.tag}}
+        image: kalasritha004/my-test-app:{{ .Values.image.tag }}
         ports:
         - containerPort: 8082
