@@ -67,8 +67,7 @@ jobs:
             ls -R
       - name: Update tag in Helm chart
         run: |
-          sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' demo/my-test-app/templates/values.yaml
-
+         sed -i 's/tag: .*/tag: \"${{ github.run_id }}\"/" My__project__scripts/demo/my-test-app/values.yaml
       - name: Commit and push changes
         run: |
           git config --global user.email "Sritha@gmail.com"
