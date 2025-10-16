@@ -31,7 +31,7 @@ jobs:
             mvn -version
         
       - name: compile with Maven
-        run: pwd && ls && mvn clean compile
+        run: pwd && ls &&  cd demo && mvn clean compile
        
 
 #      - name: Run unit test
