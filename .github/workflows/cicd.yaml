@@ -65,7 +65,7 @@ jobs:
         run: |
           pwd
           ls -R
-          - name: Update Helm chart image tag
+          cd $GITHUB_WORKSPACE
           sed -i "s/tag: .*/tag: \"${{ github.sha }}\"/" my-test-app-chart/values.yaml
 
 
