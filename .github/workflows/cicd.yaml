@@ -59,13 +59,15 @@ jobs:
   Update-newtag-in-helm-chart:
     needs: build
     runs-on: ubuntu-latest
-    steps:      
-      - name: Update tag in Helm chart
-      
-        run: |
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+     
+    - name: Update tag in Helm chart
+      run: |
           pwd
-          ls
-          cd $GITHUB_WORKSPACE 
+          ls 
           sed -i "s/tag: .*/tag: \"${{ github.sha }}\"/" my-test-app-chart/values.yaml
 
 
