@@ -65,7 +65,9 @@ jobs:
         run: |
           pwd
           ls -R
-          sed -i "s/tag: .*/tag: \"${{ github.sha }}\"/" charts/my-test-app-chart/values.yaml
+          - name: Update Helm chart image tag
+          sed -i "s/tag: .*/tag: \"${{ github.sha }}\"/" my-test-app-chart/values.yaml
+
 
          
       #- name: Commit and push changes
