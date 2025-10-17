@@ -72,12 +72,12 @@ jobs:
 
 
          
-      #- name: Commit and push changes
-      #  run: |
-      #    git config --global user.email "srithu0004@gmail.com"
-      #    git config --global user.name "Kalasritha"
-      #    git add /my-test-app-chart/values.yaml
-      #    git commit -m "Update tag in Helm chart"
-      #    git push
-      #  env:
-      #    TOKEN: ${{ secrets.TOKEN }}
+    - name: Commit and push changes
+      run: |
+          git config --global user.email "srithu0004@gmail.com"
+          git config --global user.name "Kalasritha"
+          git add my-test-app-chart/values.yaml
+          git commit -m "Update tag in Helm chart"
+          git push
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
