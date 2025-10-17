@@ -52,7 +52,7 @@ jobs:
      
       - name: Build and push Docker image
         run: |
-          cd demo && docker build -t ${{ secrets.DOCKER_USERNAME }}/my-test-app:${{ github.run_id }} .
+          cd demo && docker build -t ${{ secrets.DOCKER_USERNAME }}/my-test-app:${{ github.sha }} .
       
           docker push ${{ secrets.DOCKER_USERNAME }}/my-test-app:${{ github.sha}}
 
