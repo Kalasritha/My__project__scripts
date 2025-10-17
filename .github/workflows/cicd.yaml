@@ -56,19 +56,19 @@ jobs:
       
           docker push ${{ secrets.DOCKER_USERNAME }}/my-test-app:${{ github.sha}}
 
- # Update-newtag-in-helm-chart:
- #   needs: build
- #   runs-on: ubuntu-latest
- #  steps:      
- #     - name: Update tag in Helm chart
- #       run: |
- #        sed -i "s/tag: .*/tag: \"${{ github.sha }}\"/" my-test-app-chart/values.yaml
- #     - name: Commit and push changes
- #       run: |
- #         git config --global user.email "srithu0004@gmail.com"
- #         git config --global user.name "Kalasritha"
- #         git add /my-test-app-chart/values.yaml
- #         git commit -m "Update tag in Helm chart"
- #         git push
- #       env:
- #         TOKEN: ${{ secrets.TOKEN }}
+  Update-newtag-in-helm-chart:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Update tag in Helm chart
+        run: |
+         sed -i "s/tag: .*/tag: \"${{ github.sha }}\"/" my-test-app-chart/values.yaml
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "srithu0004@gmail.com"
+          git config --global user.name "Kalasritha"
+          git add /my-test-app-chart/values.yaml
+          git commit -m "Update tag in Helm chart"
+          git push
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
