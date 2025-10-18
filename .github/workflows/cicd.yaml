@@ -70,13 +70,12 @@ jobs:
           ls 
           sed -i "s/tag: .*/tag: \"${{ github.sha }}\"/" my-test-app-chart/values.yaml
 
-  #  - name: Commit and push changes
-  #    env:
-  #      TOKEN: ${{ secrets.TOKEN }}
-  #    run: |
-  #        git config --global user.email "srithu0004@gmail.com"
-  #        git config --global user.name "Kalasritha"
-  #        git add my-test-app-chart/values.yaml
-  #        git commit -m "Update tag in Helm chart"
-  #        git push https://Kalasritha:${TOKEN}@github.com/Kalasritha/My__project__scripts.git HEAD:main
-#
+    - name: Commit and push changes
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
+      run: |
+          git config --global user.email "srithu0004@gmail.com"
+          git config --global user.name "Kalasritha"
+          git add my-test-app-chart/values.yaml
+          git commit -m "Update tag in Helm chart"
+          git push  
