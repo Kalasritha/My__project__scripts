@@ -6,6 +6,9 @@ on:
   pull_request:
     branches:
       - main
+      
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -70,7 +73,7 @@ jobs:
           ls 
           sed -i "s/tag: .*/tag: \"${{ github.sha }}\"/" my-test-app-chart/values.yaml
 
-          
+
     - name: Commit and push changes
       env:
         TOKEN: ${{ secrets.TOKEN }}
