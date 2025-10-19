@@ -8,7 +8,7 @@ spec:
  source:
    repoURL: https://github.com/Kalasritha/My__project__scripts.git
    targetRevision: HEAD
-   path: gitops/argocd
+   path: k8s/manifests
  destination:
    server: https://kubernetes.default.svc
    namespace: my-app
