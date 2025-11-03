@@ -1,6 +1,7 @@
 #  Build the JAR using Maven Wrapper
 FROM eclipse-temurin:21-jdk-alpine AS build
 
+# setting the working directory inside the container
 WORKDIR /app
 
 # Copy everything including the wrapper and pom.xml
