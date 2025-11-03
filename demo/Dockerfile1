@@ -1,8 +1,10 @@
-# Stage 1: Build the JAR using Maven Wrapper
-FROM eclipse-temurin:21-jdk AS build
+#  Build the JAR using Maven Wrapper
+FROM eclipse-temurin:21-jdk-alpine AS build
+
 WORKDIR /app
 
 # Copy everything including the wrapper and pom.xml
+
 COPY . .
 
 # Give permission to run the wrapper script
@@ -12,14 +14,14 @@ RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
 # Stage 2: Create lightweight runtime image
-FROM eclipse-temurin:21-jdk
+FROM gcr.io/distroless/java21
 WORKDIR /app
 
 # Copy only the final jar from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
 # Expose the Spring Boot default port
-EXPOSE 8080
+EXPOSE 8082
 
 # Run the app
 ENTRYPOINT ["java","-jar","app.jar"]
