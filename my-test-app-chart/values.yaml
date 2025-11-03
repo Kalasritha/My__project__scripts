@@ -8,7 +8,7 @@ image:
   repository: kalasritha004/my-test-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "7f13cc95b9ee979517a949c5c303ee7e6c5b472d"
+  tag: "152511280c7e5955b9948ce5152be0489b1b0914"
 
 ingress:
   enabled: false
